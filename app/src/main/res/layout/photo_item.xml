@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/iv_profile"
+            android:scaleType="fitCenter"
+            app:riv_corner_radius="30dip"
+            app:riv_mutate_background="true"
+            app:riv_tile_mode="repeat"
+            app:riv_oval="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/username_label"
+            android:id="@+id/tv_username"
+            android:textSize="20sp"
+            android:textColor="#517fa4"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="Proxima-Nova-condensed"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/iv_profile"
+            android:layout_toEndOf="@+id/iv_profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_label"
+            android:id="@+id/tv_time"
+            android:textColor="#517fa4"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="375dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/iv_photo"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="375dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/progressBar"
+        android:layout_alignTop="@+id/iv_photo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_likes"
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#517fa4"
+        android:layout_below="@id/iv_photo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/caption_label"
+        android:id="@+id/tv_caption"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/tv_likes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:maxLines="3"
+        android:textColor="#000000"
+        android:fontFamily="arial-thin"
+        android:ellipsize="end" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_totalComments"
+        android:layout_below="@id/tv_caption"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#bebebe"
+        android:textSize="20sp"
+        android:text="@string/comments_label" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_totalComments"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_lastComment"
+            android:layout_marginTop="5dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="#517fa4"
+            android:fontFamily="arial-thin"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_secondLastComment"
+            android:layout_below="@id/tv_lastComment"
+            android:layout_marginTop="5dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="#517fa4"
+            android:fontFamily="arial-thin"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
