@@ -105,14 +105,19 @@ public class InstagramFeed extends AppCompatActivity {
                             long createTime = Long.parseLong(data.getString("created_time"));
                             String relativeTime = DateUtils.getRelativeTimeSpanString(createTime*1000, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS).toString();
                             JSONArray commentsArray = data.getJSONObject("comments").getJSONArray("data");
+                            int totalComments = data.getJSONObject("comments").getInt("count");
                             if(commentsArray.length()>1){
                                 String lastComment = commentsArray.getJSONObject(commentsArray.length()-1).getString("text");
-                                String secondLastComment = commentsArray.getJSONObject(commentsArray.length()-2).getString("text");
+                                String lastCommenterName = commentsArray.getJSONObject(commentsArray.length()-1).getJSONObject("from").getString("username");
+                                String secondLastComment = commentsArray.getJSONObject(commentsArray.length() - 2).getString("text");
+                                String secondLastCommenterName = commentsArray.getJSONObject(commentsArray.length()-2).getJSONObject("from").getString("username");
                                 photo.setLastComment(lastComment);
+                                photo.setLastCommenterName(lastCommenterName);
+                                photo.setSecondLastCommenterName(secondLastCommenterName);
                                 photo.setSecondLastComment(secondLastComment);
                             }
                             photo.setId(id);
-                            photo.setCommentsCount(commentsArray.length());
+                            photo.setCommentsCount(totalComments);
                             photo.setUserName(userName);
                             photo.setCaption(caption);
                             photo.setUrl(url);

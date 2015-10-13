@@ -6,6 +6,7 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:id="@+id/tv_commenterUserName"
         android:textColor="#517fa4"
         android:textSize="15sp"

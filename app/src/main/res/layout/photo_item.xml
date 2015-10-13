@@ -125,28 +125,62 @@
         android:layout_marginLeft="30dp"
         android:layout_alignParentStart="true">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_lastComment"
-            android:layout_marginTop="5dp"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textColor="#517fa4"
-            android:fontFamily="arial-thin"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:id="@+id/lastCommentLayout"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_lastCommenterName"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:textColor="#517fa4"
+                android:fontFamily="arial-thin"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_lastComment"
+                android:layout_toRightOf="@id/tv_lastCommenterName"
+                android:layout_marginTop="5dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textColor="#14213f"
+                android:fontFamily="arial-thin"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_secondLastComment"
-            android:layout_below="@id/tv_lastComment"
-            android:layout_marginTop="5dp"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textColor="#517fa4"
-            android:fontFamily="arial-thin"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:layout_below="@id/lastCommentLayout"
+            android:id="@+id/secondLastCommentLayout"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_secondLastCommenterName"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:textColor="#517fa4"
+                android:fontFamily="arial-thin"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_secondLastComment"
+                android:layout_toRightOf="@id/tv_secondLastCommenterName"
+                android:layout_marginTop="5dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textColor="#14213f"
+                android:fontFamily="arial-thin"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>

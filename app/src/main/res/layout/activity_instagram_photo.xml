@@ -4,143 +4,14 @@
     android:layout_height="match_parent"
     tools:context="com.walmartlabs.instagram_client.InstagramPhoto">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingTop="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/relativeLayout">
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/instagram_profilePicture"
-            android:scaleType="fitCenter"
-            app:riv_corner_radius="30dip"
-            app:riv_mutate_background="true"
-            app:riv_tile_mode="repeat"
-            app:riv_oval="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/username_label"
-            android:id="@+id/instagram_username"
-            android:textSize="20sp"
-            android:textColor="#517fa4"
-            android:gravity="center"
-            android:layout_marginLeft="5dp"
-            android:fontFamily="Proxima-Nova-condensed"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/instagram_profilePicture"
-            android:layout_toEndOf="@+id/instagram_profilePicture" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time_label"
-            android:id="@+id/instagram_time"
-            android:textColor="#517fa4"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pictureFeed"
-        android:layout_below="@+id/relativeLayout">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="375dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/instagram_picture"
-            android:scaleType="fitXY"
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:adjustViewBounds="true" />
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="375dp"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/instagram_progressBar"
-            android:layout_alignTop="@+id/instagram_picture"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/instagram_pictureLikes"
-            android:textSize="20sp"
-            android:layout_marginLeft="5dp"
-            android:textColor="#517fa4"
-            android:layout_below="@id/instagram_picture"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/caption_label"
-            android:id="@+id/instagram_caption"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/instagram_pictureLikes"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textSize="20sp"
-            android:maxLines="3"
-            android:textColor="#000000"
-            android:fontFamily="arial-thin"
-            android:ellipsize="end" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/instagram_totalComments"
-            android:layout_below="@id/instagram_caption"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="#bebebe"
-            android:textSize="20sp"
-            android:text="@string/comments_label" />
-
         <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lv_userComments"
             android:isScrollContainer="true"
-            android:layout_below="@+id/instagram_totalComments"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true" />
-
-    </RelativeLayout>
-
-
-
 
 </RelativeLayout>

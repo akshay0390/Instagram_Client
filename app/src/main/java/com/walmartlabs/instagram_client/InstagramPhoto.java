@@ -26,13 +26,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class InstagramPhoto extends AppCompatActivity {
 
-    private TextView userName;
-    private RoundedImageView profilePicture;
-    private TextView pictureTime;
-    private ImageView picture;
-    private TextView pictureLikes;
-    private TextView pictureCaption;
-    private TextView totalComments;
     private ListView pictureComments;
     private ArrayList<PhotoComment> photoComments;
     private PhotoCommentAdapter commentAdapter;
@@ -43,42 +36,12 @@ public class InstagramPhoto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instagram_photo);
 
-        userName = (TextView) findViewById(R.id.instagram_username);
-        profilePicture = (RoundedImageView) findViewById(R.id.instagram_profilePicture);
-        pictureTime = (TextView) findViewById(R.id.instagram_time);
-        picture = (ImageView) findViewById(R.id.instagram_picture);
-        pictureLikes = (TextView) findViewById(R.id.instagram_pictureLikes);
-        pictureCaption = (TextView) findViewById(R.id.instagram_caption);
-        totalComments = (TextView) findViewById(R.id.instagram_totalComments);
         pictureComments = (ListView) findViewById(R.id.lv_userComments);
 
         photoComments = new ArrayList<>();
         commentAdapter = new PhotoCommentAdapter(this,photoComments);
         pictureComments.setAdapter(commentAdapter);
-
         Photo photo = (Photo) getIntent().getSerializableExtra("photo");
-
-        userName.setText(photo.getUserName());
-        pictureTime.setText(photo.getTime());
-        String heartText = this.getResources().getString(R.string.heart_label);
-        pictureLikes.setText(heartText+" "+photo.getLikes()+" likes");
-        pictureCaption.setText(photo.getCaption());
-        totalComments.setText("Total " + photo.getCommentsCount() + " Comments");
-        Picasso.with(this).load(photo.getProfilePictureUrl()).into(profilePicture);
-
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.instagram_progressBar);
-        progressBar.setVisibility(View.VISIBLE);
-        Picasso.with(this).load(photo.getUrl()).into(picture, new Callback() {
-            @Override
-            public void onSuccess() {
-                progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
         fetchPhotoComments(photo.getId());
     }
 
@@ -90,7 +53,6 @@ public class InstagramPhoto extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                //photoComments.clear();
                 try{
                     JSONArray commentsList = response.getJSONArray("data");
                     for(int i=0;i<commentsList.length();i++){

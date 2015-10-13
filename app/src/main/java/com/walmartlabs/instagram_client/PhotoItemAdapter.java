@@ -34,8 +34,11 @@ public class PhotoItemAdapter extends ArrayAdapter<Photo> {
         RoundedImageView profileImage;
         TextView likes;
         TextView relativeTime;
+        TextView totalComments;
         TextView lastComment;
         TextView secondLastComment;
+        TextView lastCommenterName;
+        TextView secondLastCommenterName;
     }
 
     @Override
@@ -56,6 +59,9 @@ public class PhotoItemAdapter extends ArrayAdapter<Photo> {
             viewHolder.relativeTime = (TextView) convertView.findViewById(R.id.tv_time);
             viewHolder.lastComment = (TextView) convertView.findViewById(R.id.tv_lastComment);
             viewHolder.secondLastComment = (TextView) convertView.findViewById(R.id.tv_secondLastComment);
+            viewHolder.lastCommenterName = (TextView) convertView.findViewById(R.id.tv_lastCommenterName);
+            viewHolder.secondLastCommenterName = (TextView) convertView.findViewById(R.id.tv_secondLastCommenterName);
+            viewHolder.totalComments = (TextView) convertView.findViewById(R.id.tv_totalComments);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
@@ -67,9 +73,12 @@ public class PhotoItemAdapter extends ArrayAdapter<Photo> {
         viewHolder.caption.setText(photo.getCaption());
         String heartText = getContext().getResources().getString(R.string.heart_label);
         viewHolder.likes.setText(heartText+" "+photo.getLikes()+" likes");
+        viewHolder.totalComments.setText(photo.getCommentsCount()+" Comment");
         viewHolder.relativeTime.setText(photo.getTime());
         viewHolder.lastComment.setText(photo.getLastComment());
         viewHolder.secondLastComment.setText(photo.getSecondLastComment());
+        viewHolder.lastCommenterName.setText(photo.getLastCommenterName()+":");
+        viewHolder.secondLastCommenterName.setText(photo.getSecondLastCommenterName()+":");
         viewHolder.imageView.setImageResource(0);
         Picasso.with(getContext()).load(photo.getUrl()).into(viewHolder.imageView, new Callback() {
             @Override

@@ -15,9 +15,27 @@ public class Photo implements Serializable{
     private int likes;
     private String time;
     private int commentsCount;
+    private String lastCommenterName;
     private String lastComment;
+    private String secondLastCommenterName;
     private String secondLastComment;
     private String id;
+
+    public String getLastCommenterName() {
+        return lastCommenterName;
+    }
+
+    public void setLastCommenterName(String lastCommenterName) {
+        this.lastCommenterName = lastCommenterName;
+    }
+
+    public String getSecondLastCommenterName() {
+        return secondLastCommenterName;
+    }
+
+    public void setSecondLastCommenterName(String secondLastCommenterName) {
+        this.secondLastCommenterName = secondLastCommenterName;
+    }
 
     public String getId() {
         return id;
